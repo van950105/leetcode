@@ -1,0 +1,24 @@
+class Solution:
+    # @return a string
+    def countAndSay(self, n):
+        if n==1:
+            return "1"
+        else:
+            return self.countAndSayHelper(self.countAndSay(n-1))
+
+    def countAndSayHelper(self,n):
+        s=str(n)
+        lookAndSay=""
+        count=0
+        while len(s)>=1:
+            char=s[0]
+            count+=1
+            while len(s)>=2 and s[0]==s[1]:
+                count+=1
+                s=s[1:]
+            s=s[1:]
+            lookAndSay=lookAndSay+str(count)+char
+            count=0
+        return lookAndSay
+
+#recursive counting

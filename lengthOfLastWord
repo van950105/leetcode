@@ -1,0 +1,19 @@
+class Solution:
+    # @param s, a string
+    # @return an integer
+    def lengthOfLastWord(self,s):
+        count=0
+        index=-1
+        while len(s)!=0 and ord(s[index])==32:
+            s=s[0:-1]
+        if len(s)==0:
+            return 0
+        while index>=-len(s) and ord(s[index])!=32:
+            count+=1
+            index-=1
+        return count
+
+
+#countback
+#leetcode's description is really confusing 
+#could use .split method
